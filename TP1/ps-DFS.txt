@@ -1,0 +1,21 @@
+DFS():
+    Inicializa contador ciclos = 0
+    Para cada nó raiz em CD:
+        Aloca dinamicamente vetor visitado e o inicializa com 0
+	Chama DFS_recursivo() para raiz
+        Desaloca visitado
+        Se ciclos==1:
+            retorna 1
+     Retorna 0
+
+DFS_recursivo():
+    Atribui visitado[raiz] = 1
+    Para cada PV v na lista de adjacência de raiz:
+        Se v!=0 e ciclos == 0:
+            Atualiza v para referenciar sua posição em visitado
+                Se visitado[v] == 1
+                    Incrementa contador ciclos++
+                Senão e visitado[v] == 0
+                    Chama DFS_recursivo() para nó v
+    Atribui visitado[raiz] = 2
+

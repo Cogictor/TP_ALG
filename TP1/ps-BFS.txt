@@ -1,0 +1,29 @@
+BFS():
+    Inicializa estrutura para armazenar as árvores de caminhos 
+    Para cada nó raiz em CD:
+        inicia contador layer=0
+        inicializar árvore L
+        inicializa camada l
+        aloca dinamicamente visitado[CD+PV]
+        aloca dinamicamente distancia[CD+PV]
+        cria lista Fila e insere raiz no fim
+        Preenche visitado com 0 e visitado[raiz] =1
+        Atribue distancia[raiz] = 0
+        Adiciona raiz em l e l em L
+        Limpa camada l e atribui dist =1
+        Enquanto Fila não está vazia:
+            Retira primeiro elemento u
+            Para cada PV v na lista de adjacência de u:
+                Se v!=0:
+                Atualiza v para sua posição em visitado
+                    Se visitado[v] == 0:
+                        Atualiza visitado[v] = 1 e distancia[v] = distancia[u] + 1 
+                        Se distancia[v]>dist:
+                            Incrementa contador dist++ e layer ++
+                            Se layer é a layer limite:
+                                Sai do laço Enquanto, desaloca vetores visitado e distância e adiciona árvore L na estrutura
+                            Adiciona camada l no fim da árvore L e limpa camada l
+                        Adiciona v na camada atual e na Fila
+        Adiciona camada l na árvore e árvore L na estrutura
+        Desaloca visitado e distancia
+    Retorna a estrutura que armazena as árvores 
